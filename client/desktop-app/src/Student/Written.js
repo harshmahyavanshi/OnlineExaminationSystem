@@ -149,7 +149,7 @@ export default class Pdf extends Component{
     else{
       display.push(
         <div>
-          <h1>Loding PDF...</h1>
+          <h1>Loading PDF...</h1>
         </div>
       )
     }

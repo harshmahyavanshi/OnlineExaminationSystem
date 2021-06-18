@@ -169,7 +169,7 @@ class ViewResponse extends Component {
                                 <ListGroupItem> <p>Name : {this.state.answersheet[i].studentName} </p>
                                                 <p>email : {this.state.answersheet[i].studentEmail}</p>
                                                <p> <Button inverse color="success" onClick={() => this.viewpdf(this.state.answersheet[i].studentEmail,this.state.answersheet[i].examId)}>View Answersheet</Button></p>
-                                               <p> <Button onClick={()=>this.download(this.state.answersheet[i].pdf,this.state.answersheet[i].pdfName)}><i class="fa fa-download" ></i>download</Button></p>
+                                               <p> <Button onClick={()=>this.download(this.state.answersheet[i].pdf,this.state.answersheet[i].pdfName)}><i class="fa fa-download" ></i>Download</Button></p>
                                                
                                 </ListGroupItem>
                         

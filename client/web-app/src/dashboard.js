@@ -306,8 +306,8 @@ export default class dashboard extends React.Component {
         return (
             <div>
                 <CssBaseline />
-                <AppBar position="absolute" className={clsx(this.state.classes.appBar, this.state.open && this.state.classes.appBarShift)}>
-                    <Toolbar className={this.state.classes.toolbar}>
+                <AppBar color="secondary" position="absolute" className={clsx(this.state.classes.appBar, this.state.open && this.state.classes.appBarShift)}>
+                    <Toolbar  className={this.state.classes.toolbar}>
                         <IconButton
                             edge="start"
                             color="inherit"
@@ -317,7 +317,7 @@ export default class dashboard extends React.Component {
                         >
                             <MenuIcon />
                         </IconButton>
-                        <Typography component="h1" variant="h6" color="inherit" noWrap className={this.state.classes.title}>
+                        <Typography align="center" component="h1" variant="h6" color="inherit" noWrap className={this.state.classes.title}>
                             Dashboard
           </Typography>
 

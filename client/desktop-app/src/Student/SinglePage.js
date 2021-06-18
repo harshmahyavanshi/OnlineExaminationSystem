@@ -60,7 +60,7 @@ export default function AllPages(props) {
       return( 
       <div>
       <QRCode
-      value={`http://http://192.168.43.39:3001/scanner/${email1}/${props.id}`}
+      value={`http://192.168.43.39:3001/scanner/${email1}/${props.id}`}
       size={128}
       bgColor={"#ffffff"}
       fgColor={"#000000"}
