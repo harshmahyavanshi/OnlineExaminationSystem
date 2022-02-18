@@ -27,11 +27,14 @@ class AddStudent extends Component {
         let email = temp[0].split("=")[1];
         let role = temp[1].split("=")[1];
         let orgId = temp[2].split("=")[1];
+        let university = temp[3].split("=")[1];
+        
         this.setState({
             cookie : {
                 email : email,
                 role : role,
-                orgId : orgId
+                orgId : orgId,
+                university: university
             }
         });
     }
@@ -42,7 +45,7 @@ class AddStudent extends Component {
             showMessage: "none",
             message: ""
         });
-
+        let profileData = []
         let reqBody = [];
         for (let i = 1; i < this.state.rows.length; i++) {
             if (!this.state.rows[i][0]) break;
@@ -51,10 +54,24 @@ class AddStudent extends Component {
                 role: "student",
                 orgId: this.state.cookie.orgId
             });
+            profileData.push({
+                orgId: this.state.cookie.orgId,
+                firstname: this.state.rows[i][1],
+                lastname: this.state.rows[i][2],
+                email: this.state.rows[i][3],
+                university: this.state.cookie.university,
+                role: "Student",
+               
+            })
+
+            //alert(this.state.cookie.university)
+            this.setState({
+                loading:false
+            })
         }
         var self = this;
-        axios.post('http://localhost:5000/addUser', {
-            users: reqBody
+      axios.post('http://localhost:5000/addUser', {
+            users: reqBody, profileData: profileData
         })
             .then(function (response) {
                 console.log(self.state);

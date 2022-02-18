@@ -1,9 +1,8 @@
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const express = require('express');
-const user = require('../../models/UserModels');
-const forms = require('../../models/ExamModels')
-const profiles = require('../../models/ProfileModels')
+const profile = require('../../models/ProfileModels');
+
 const path = require('path');
 const generator = require('generate-password');
 const mainRouter = express.Router();
@@ -19,10 +18,8 @@ mainRouter.route("/")
             uppercase: true,
             numbers: true,
         });
-        let profile = req.body.profileData;
         let queryData  = [];
         let queryData2  = [];
-        let profileData = [];
         let emails = [];
         for(let i=0;i<body.length;i++) {
             emails.push(body[i].email);
@@ -32,22 +29,9 @@ mainRouter.route("/")
                 "role" : body[i].role,
                 "orgId" : body[i].orgId  
             });
-            queryData2.push({
-                "email":body[i].email,
-                "exam":[],
-                
-            })
-            profileData.push({
-                orgId: profile[i].orgId,
-                firstname: profile[i].firstname,
-                lastname: profile[i].lastname,
-                email: profile[i].email,
-                university: profile[i].university,
-                role: profile[i].role,
-            })
+         
         }
-
-        user.collection.find({"_id" : {$in: [queryData[0].orgId]}}).count().then((data) => {
+        profile.collection.find({"_id" : {$in: [queryData[0].orgId]}}).count().then((data) => {
             console.log(data);
         }).catch((err) => {
             console.log(err);
@@ -66,17 +50,7 @@ mainRouter.route("/")
                 user.collection.insertMany(queryData)
                 .then(() => {
                     console.log("success");
-                //ProfileData
-                profiles.collection.insertMany(profileData)
-                .then(() => {
-                    console.log("success");
                     
-                    
-                });
-
-
-
-
                     for(let i=0;i<queryData.length;i++) {
                         let toEmail = queryData[i].email;
                         let password = queryData[i].password;

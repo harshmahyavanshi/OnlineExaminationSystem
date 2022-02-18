@@ -78,7 +78,7 @@ router.post('/signin', (req, res, next) => {
                 console.log(someValue[0].role)
                 res.statusCode = 200;
                 res.setHeader('Content-Type', 'application/json');
-                res.json({ "statusMessage": "Login Successful",  "email": someValue[0].email, "role": someValue[0].role,"orgId": someValue[0].orgId});
+                res.json({ "statusMessage": "Login Successful",  "email": someValue[0].email, "role": someValue[0].role,"orgId": someValue[0].orgId,"university": someValue[0].university});
                 ses=req.body.admin_users.status;
             }
             else {
@@ -150,6 +150,7 @@ router.get("/dashboard",(req, res) => {
                                 "email": req.body.details.email,
                                 "password": password,
                                 "role": "admin",
+                                "university": data[0].university,
                                 "orgId": data[0]._id
                             });
                             users.collection.insertMany(queryData)

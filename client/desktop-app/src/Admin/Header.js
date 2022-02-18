@@ -18,7 +18,7 @@ export default function AdminHeader(props) {
                 <div className="sidebar-header">
                     <h3> Admin Dashboard</h3>
                     <div style={{ display: "flex" }}>
-                        <Button color="link" onClick={showList}><ReactRoundedImage image={MyPhoto} hoverColor="#D1D0CE"/></Button>
+                      <Link to="/admin/adminprofile"> <ReactRoundedImage image={MyPhoto} hoverColor="#D1D0CE"/></Link> 
                     </div>
                 </div>
                 <ul className="list-unstyled components">

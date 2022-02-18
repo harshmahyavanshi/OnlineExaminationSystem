@@ -14,6 +14,7 @@ const viewResult = require('./routes/desktop-app/viewResult')
 const deleteExam = require('./routes/desktop-app/deleteExam')
 const editExam = require('./routes/desktop-app/editExam')
 const forgotpassword =require('./routes/desktop-app/forgotpassword')
+const getProfile = require('./routes/desktop-app/getProfile')
 const cors = require('cors')
 const bodyParser = require('body-parser')
 
@@ -47,7 +48,7 @@ app.use("/viewExam", viewExam);
 app.use("/AnswerSheet", answersheet);
 app.use("/UploadResult",uploadResult)
 app.use("/ViewResult",viewResult)
-
+app.use("/getProfile",getProfile)
 app.listen(5000, () => console.log("Server is running"))
 
 connectDB();

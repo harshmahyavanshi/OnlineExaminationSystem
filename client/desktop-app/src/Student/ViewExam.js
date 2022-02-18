@@ -3,6 +3,7 @@ import StudentHeader from './Header';
 import { Card, CardText, CardTitle, Breadcrumb, BreadcrumbItem ,Button} from 'reactstrap';
 import ClipLoader from "react-spinners/ClipLoader";
 import { Link } from 'react-router-dom';
+
 const path = require('path');
 const url = require('url');
 const shell = window.require('electron').shell;
@@ -62,9 +63,11 @@ class ViewExamss extends Component {
             });
         })
     }
+    
     startExam(url1,url2) {
         //const remote = require('electron').remote;
         const BrowserWindow = remote.BrowserWindow;
+
         const win = new BrowserWindow({
           height: 600,
           width: 800,
@@ -73,6 +76,8 @@ class ViewExamss extends Component {
           webPreferences: {  enableRemoteModule: true ,webSecurity: false, nodeIntegration: true } 
         });
         win.setMenu(null);
+      
+        //win.setContentProtection(true);
        // let data= this.state.exams[3].examId;
        shell.openExternal(`https://zoomclone.harsh31.repl.co/room/${url2}`);
 
@@ -82,9 +87,10 @@ class ViewExamss extends Component {
         //win.loadFile(url);
         if(url1 === "No mcq")
         {
-           // alert("inside url2 "+ url2)
+          // alert("inside url2 "+ url2)
             
             win.loadURL(`http://localhost:3000/scanner/${url2}`);
+            
         }
        else {
          

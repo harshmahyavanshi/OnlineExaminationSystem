@@ -23,8 +23,9 @@ import ShowAnswersheet from './Faculty/ShowAnwersheet'
 import UploadResult from './Faculty/UploadResult'
 import ViewResult from './Student/ViewResult'
 import Forgotpassword from './forgotpassword';
-
-
+import StudentProfile from './Student/Profile'
+import AdminProfile from './Admin/Profile'
+import FacultyProfile from './Faculty/Profile'
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
@@ -49,7 +50,9 @@ ReactDOM.render(
           <Route path="/faculty/uploadresult" exact component={UploadResult} />
           <Route path="/student/viewresult" exact component={ViewResult} />
           <Route path="/forgotpassword" exact component={Forgotpassword} />
-
+          <Route path="/student/studentprofile" exact component={StudentProfile} />
+          <Route path="/admin/adminprofile" exact component={AdminProfile}/>
+          <Route path="/faculty/facultyProfile" exact component={FacultyProfile} />
           <Route path="/*" exact component={ NotFound } />
           </Switch>
         </div>

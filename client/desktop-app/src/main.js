@@ -19,7 +19,6 @@ function createWindow () {
     mainWindow = null;
   });
   mainWindow.setTitle('Examination Room');
-  mainWindow.setContentProtection(true);
 }
 
 const template = [

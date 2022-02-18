@@ -78,9 +78,11 @@ export default class Login extends Component {
                     document.cookie = 'email='+data.data.email;
                     document.cookie = 'role='+data.data.role;
                     document.cookie = 'orgId='+data.data.orgId;
+                    document.cookie = 'university='+data.data.university;
+
                     //this.context.history.push('/admin');
                     //history.push("/admin"); 
-                   // alert("login admin"+document.cookie)
+                   alert("login admin"+document.cookie)
                     this.setState(() => ({
                        toAdminDashboard: true
                     }))

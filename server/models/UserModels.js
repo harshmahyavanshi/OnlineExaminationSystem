@@ -15,6 +15,10 @@ let userSchema = new Schema({
         type: String,
         required: true
     },
+    university:{
+        type: String,
+        required: true
+    },
     orgId: {
         type: String,
         required: true

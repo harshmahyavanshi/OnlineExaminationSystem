@@ -14,7 +14,7 @@ export default function FacultyHeader(props) {
                 <div className="sidebar-header">
                     <h3>Faculty Dashboard</h3>
                     <div style={{ display: "flex" }}>
-                        <ReactRoundedImage image={MyPhoto} roundedColor="#D1D0CE" hoverColor="#4863A0" />
+                      <Link to="/faculty/facultyProfile"> <ReactRoundedImage image={MyPhoto} roundedColor="#D1D0CE" hoverColor="#4863A0" /></Link> 
                     </div>
                 </div>
                 <ul className="list-unstyled components">
